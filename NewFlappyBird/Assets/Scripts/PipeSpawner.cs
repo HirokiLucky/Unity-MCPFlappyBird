@@ -9,6 +9,7 @@ namespace FlappyBird
         [SerializeField] private float minHeight = -2f;
         [SerializeField] private float maxHeight = 2f;
         [SerializeField] private float xSpawnPosition = 10f;
+        [SerializeField] private float gapSize = 4f; // パイプ間の隙間サイズ
 
         private float timer;
 
@@ -19,16 +20,30 @@ namespace FlappyBird
             timer += Time.deltaTime;
             if (timer >= spawnInterval)
             {
-                SpawnPipe();
+                SpawnPipePair();
                 timer = 0;
             }
         }
 
-        private void SpawnPipe()
+        private void SpawnPipePair()
         {
             float randomHeight = Random.Range(minHeight, maxHeight);
-            Vector3 spawnPosition = new Vector3(xSpawnPosition, randomHeight, 0);
-            Instantiate(pipePrefab, spawnPosition, Quaternion.identity);
+            
+            // 下のパイプを生成
+            GameObject lowerPipe = Instantiate(pipePrefab, new Vector3(xSpawnPosition, randomHeight - (gapSize/2), 0), Quaternion.identity);
+            lowerPipe.transform.localScale = new Vector3(1f, 8f, 1f); // パイプの高さを8倍に
+            
+            // 上のパイプを生成
+            GameObject upperPipe = Instantiate(pipePrefab, new Vector3(xSpawnPosition, randomHeight + (gapSize/2), 0), Quaternion.Euler(0, 0, 180));
+            upperPipe.transform.localScale = new Vector3(1f, 8f, 1f); // パイプの高さを8倍に
+            
+            // パイプをまとめるための親オブジェクトを作成
+            GameObject pipeGroup = new GameObject("PipeGroup");
+            lowerPipe.transform.parent = pipeGroup.transform;
+            upperPipe.transform.parent = pipeGroup.transform;
+            
+            // 親オブジェクトにPipeスクリプトを追加
+            Pipe pipeScript = pipeGroup.AddComponent<Pipe>();
         }
     }
 }
