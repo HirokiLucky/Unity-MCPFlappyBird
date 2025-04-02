@@ -560,7 +560,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 407278203}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1033,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &740711461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1102,6 +1102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180262746}
+  - component: {fileID: 1180262747}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1124,6 +1125,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180262747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180262745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94af74e4db7fbe4aabc2f31e17494d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 0}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
 --- !u!1 &1362618469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362618470}
+  - component: {fileID: 1362618471}
   m_Layer: 0
   m_Name: PipeSpawner
   m_TagString: Untagged
@@ -1155,6 +1172,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362618471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362618469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a470c00fb5310c44b89fc9db5ca4b8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipePrefab: {fileID: 0}
+  spawnInterval: 2
+  moveSpeed: 3
+  destroyXPosition: -10
+  spawnXPosition: 10
+  minYPosition: -2
+  maxYPosition: 2
 --- !u!1 &2044838423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,6 +1203,7 @@ GameObject:
   - component: {fileID: 2044838426}
   - component: {fileID: 2044838425}
   - component: {fileID: 2044838424}
+  - component: {fileID: 2044838428}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -1303,6 +1340,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2044838428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044838423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734027aaffbdfd74eb8263f5871f6f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  rotationSpeed: 10
+  maxRotationAngle: 35
+  minRotationAngle: -60
 --- !u!1 &2110679295
 GameObject:
   m_ObjectHideFlags: 0
