@@ -34,7 +34,7 @@ namespace FlappyBird
             lowerPipe.transform.localScale = new Vector3(1f, 8f, 1f); // パイプの高さを8倍に
             
             // 上のパイプを生成
-            GameObject upperPipe = Instantiate(pipePrefab, new Vector3(xSpawnPosition, randomHeight + (gapSize/2), 0), Quaternion.Euler(0, 0, 180));
+            GameObject upperPipe = Instantiate(pipePrefab, new Vector3(xSpawnPosition, randomHeight + (gapSize/2), 0), Quaternion.identity);
             upperPipe.transform.localScale = new Vector3(1f, 8f, 1f); // パイプの高さを8倍に
             
             // パイプをまとめるための親オブジェクトを作成
